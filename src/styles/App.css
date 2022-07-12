@@ -1,0 +1,53 @@
+* {
+  background-color: #cdd1de;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header {
+  background-color: #2f4858;
+  height: 80px;
+  color: #cdd1de;
+  text-emphasis: "*";
+  font-size: 35px;
+}
+
+.main-score {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  border: 1px solid black;
+  margin: none;
+}
+
+.scoreboard {
+  border: 1px solid red;
+  width: 150px;
+}
+
+.card {
+  border: 1px solid black;
+  height: 200px;
+  width: 150px;
+  margin: 20px;
+}
+
+#CardBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+}
