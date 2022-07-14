@@ -40,9 +40,13 @@
 
 .card {
   border: 1px solid black;
-  height: 200px;
-  width: 150px;
+  height: 20vh;
+  width: 16vw;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 #CardBox {
@@ -50,4 +54,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
+}
+
+.icons {
+  min-height: 50px;
+  max-height: 100px;
 }
