@@ -163,12 +163,24 @@ function App() {
 
   const themeClick = (theme) => {
     let themeArray = [];
+    const Nature = document.querySelector("#Nature");
+    const Animals = document.querySelector("#Animals");
+    const Sports = document.querySelector("#Sports");
     if (theme === "Sports") {
       themeArray = sportsList;
+      Sports.classList.add("checked");
+      Animals.classList.remove("checked");
+      Nature.classList.remove("checked");
     } else if (theme === "Animals") {
       themeArray = animalList;
+      Animals.classList.add("checked");
+      Sports.classList.remove("checked");
+      Nature.classList.remove("checked");
     } else {
       themeArray = natureList;
+      Nature.classList.add("checked");
+      Sports.classList.remove("checked");
+      Animals.classList.remove("checked");
     }
 
     let newOrderArray = orderedArray;
@@ -188,6 +200,17 @@ function App() {
     setList(resetList);
   };
 
+  const checkScore = () => {
+    let rules = document.querySelector("#rules");
+    if (currentScore === 12) {
+      rules.textContent = "CONGRATS, YOU WIN!!!";
+      rules.style.animation = "wiggle 2s";
+      rules.style.color = "#d4f0f0";
+    } else {
+      rules.textContent = "Its Simple: Don't click the same card twice!";
+    }
+  };
+
   return (
     <div className="App">
       <Title />
@@ -195,6 +218,7 @@ function App() {
         <p id="rules">Its Simple: Don't click the same card twice!</p>
         <div id="themeDiv">
           <ThemeBtn
+            id="Sports"
             class="themeBtn checked"
             name="Sports"
             click={() => {
@@ -202,6 +226,7 @@ function App() {
             }}
           />
           <ThemeBtn
+            id="Animals"
             class="themeBtn"
             name="Animals"
             click={() => {
@@ -209,6 +234,7 @@ function App() {
             }}
           />
           <ThemeBtn
+            id="Nature"
             class="themeBtn"
             name="Nature"
             click={() => {
