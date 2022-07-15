@@ -200,16 +200,27 @@ function App() {
     setList(resetList);
   };
 
-  const checkScore = () => {
+  useEffect(() => {
     let rules = document.querySelector("#rules");
     if (currentScore === 12) {
       rules.textContent = "CONGRATS, YOU WIN!!!";
       rules.style.animation = "wiggle 2s";
-      rules.style.color = "#d4f0f0";
+      resetAll();
     } else {
       rules.textContent = "Its Simple: Don't click the same card twice!";
     }
-  };
+  });
+
+  // const checkScore = () => {
+  //   let rules = document.querySelector("#rules");
+  //   if (currentScore === 12) {
+  //     rules.textContent = "CONGRATS, YOU WIN!!!";
+  //     rules.style.animation = "wiggle 2s";
+  //     rules.style.color = "#d4f0f0";
+  //   } else {
+  //     rules.textContent = "Its Simple: Don't click the same card twice!";
+  //   }
+  // };
 
   return (
     <div className="App">
