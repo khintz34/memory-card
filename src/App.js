@@ -16,7 +16,32 @@ import {
   faBowlingBall,
   faBicycle,
   faDumbbell,
+  faCow,
+  faDog,
+  faHippo,
+  faOtter,
+  faBugs,
+  faCat,
+  faCrow,
+  faDove,
+  faFish,
+  faFrog,
+  faHorse,
+  faKiwiBird,
+  faLeaf,
+  faTree,
+  faClover,
+  faFeather,
+  faFire,
+  faIcicles,
+  faMountain,
+  faPersonHiking,
+  faVolcano,
+  faWater,
+  faWind,
+  faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
+import ThemeBtn from "./components/ThemeButton";
 
 function App() {
   const resetList = {
@@ -33,6 +58,51 @@ function App() {
     card11: false,
     card12: false,
   };
+
+  const sportsList = [
+    faFutbol,
+    faFootball,
+    faBaseball,
+    faGolfBall,
+    faHockeyPuck,
+    faBasketball,
+    faBroomBall,
+    faTableTennis,
+    faBowlingBall,
+    faVolleyball,
+    faBicycle,
+    faDumbbell,
+  ];
+
+  const natureList = [
+    faLeaf,
+    faTree,
+    faClover,
+    faFeather,
+    faFire,
+    faIcicles,
+    faMountain,
+    faPersonHiking,
+    faVolcano,
+    faWater,
+    faWind,
+    faSignsPost,
+  ];
+
+  const animalList = [
+    faCow,
+    faDog,
+    faHippo,
+    faOtter,
+    faBugs,
+    faCat,
+    faCrow,
+    faDove,
+    faFish,
+    faFrog,
+    faHorse,
+    faKiwiBird,
+  ];
 
   const [orderedArray, setOrderedArray] = useState([
     { title: "card1", icon: faFutbol, color: "#d4f0f0" },
@@ -91,10 +161,62 @@ function App() {
     setOrderedArray([...orderedArray].sort(() => Math.random() - 0.5));
   };
 
+  const themeClick = (theme) => {
+    let themeArray = [];
+    if (theme === "Sports") {
+      themeArray = sportsList;
+    } else if (theme === "Animals") {
+      themeArray = animalList;
+    } else {
+      themeArray = natureList;
+    }
+
+    let newOrderArray = orderedArray;
+
+    for (let i = 0; i <= 11; i++) {
+      newOrderArray[i].icon = themeArray[i];
+    }
+
+    setOrderedArray(themeArray);
+
+    resetAll();
+  };
+
+  const resetAll = () => {
+    shuffleArray(orderedArray);
+    setCurrentScore(0);
+    setList(resetList);
+  };
+
   return (
     <div className="App">
       <Title />
-      <p id="rules">Its Simple: Don't click the same card twice!</p>
+      <div id="headerDiv">
+        <p id="rules">Its Simple: Don't click the same card twice!</p>
+        <div id="themeDiv">
+          <ThemeBtn
+            class="themeBtn checked"
+            name="Sports"
+            click={() => {
+              themeClick("Sports");
+            }}
+          />
+          <ThemeBtn
+            class="themeBtn"
+            name="Animals"
+            click={() => {
+              themeClick("Animals");
+            }}
+          />
+          <ThemeBtn
+            class="themeBtn"
+            name="Nature"
+            click={() => {
+              themeClick("Nature");
+            }}
+          />
+        </div>
+      </div>
       <ScoreBoard currentScore={currentScore} highScore={highScore} />
       <CardBox click={buttonClick} orderedArray={orderedArray} />
     </div>

@@ -124,3 +124,19 @@
 .highlights {
   background-color: yellow;
 }
+
+#themeDiv {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.themeBtn {
+  border-radius: 5px;
+  width: 80px;
+}
+
+.checked {
+  background-color: #d4f0f0;
+}
