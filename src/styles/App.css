@@ -19,10 +19,10 @@
 
 .header {
   background-color: #2f4858;
-  height: 80px;
+  height: 50px;
   color: #cdd1de;
-  text-emphasis: "*";
   font-size: 35px;
+  padding: 10px;
 }
 
 .main-score {
@@ -31,10 +31,10 @@
   justify-content: center;
   border: 1px solid black;
   margin: none;
+  background-color: #2f4858;
 }
 
 .scoreboard {
-  border: 1px solid red;
   width: 150px;
 }
 
@@ -47,6 +47,17 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  box-shadow: 0 9px #999;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.card:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #CardBox {
@@ -59,4 +70,57 @@
 .icons {
   min-height: 50px;
   max-height: 100px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+    font-size: 16px;
+  }
+  10% {
+    font-size: 17px;
+  }
+  20% {
+    transform: translate(1px, -1px) rotate(1deg);
+    font-size: 18px;
+  }
+  30% {
+    font-size: 19px;
+  }
+
+  40% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+    font-size: 20px;
+  }
+  50% {
+    font-size: 22px;
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+    font-size: 20px;
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+    font-size: 19px;
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+    font-size: 18px;
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+    font-size: 17px;
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+    font-size: 16px;
+  }
+}
+
+.highlights {
+  background-color: yellow;
 }

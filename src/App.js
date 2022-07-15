@@ -58,19 +58,28 @@ function App() {
   const [list, setList] = useState(resetList);
 
   const buttonClick = (title) => {
+    let rules = document.querySelector("#rules");
     if (list[title] === false) {
       setList({ ...list, [title]: true });
       setCurrentScore(currentScore + 1);
       shuffleArray(orderedArray);
+      rules.style.animation = "";
+      rules.style.color = "black";
     } else {
       setCurrentScore(0);
       setList(resetList);
+      rules.style.animation = "wiggle 2s";
+      rules.style.color = "red";
     }
   };
 
   useEffect(() => {
-    if (currentScore >= highScore) {
+    let scoreDiv = document.querySelector(".highScore");
+    if (currentScore >= highScore && currentScore > 0) {
       setHighScore(currentScore);
+      scoreDiv.classList.add("highlights");
+    } else {
+      scoreDiv.classList.remove("highlights");
     }
   }, [list]);
 
@@ -85,7 +94,7 @@ function App() {
   return (
     <div className="App">
       <Title />
-      <p>Its Simple: Don't click the same card twice!</p>
+      <p id="rules">Its Simple: Don't click the same card twice!</p>
       <ScoreBoard currentScore={currentScore} highScore={highScore} />
       <CardBox click={buttonClick} orderedArray={orderedArray} />
     </div>
